@@ -19,5 +19,5 @@ files[] = tests/hooked_access.test
 files[] = tests/islandora_manage_permissions.test
 files[] = tests/datastream_versions.test
 files[] = tests/derivatives.test
-files[] = tests/islandora_tuque.test
+files[] = tests/islandora_tuque.test 
 php = 5.3
