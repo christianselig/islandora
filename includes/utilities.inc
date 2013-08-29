@@ -916,9 +916,9 @@ function islandora_as_renderable_array(&$markup_array) {
 /**
  * Creates and returns a singleton of tuque if one does not already exist.
  *
- * @param  object $user
+ * @param object $user
  *   User who created the request.
- * @param  object $url
+ * @param object $url
  *   URL to Fedora.
  *
  * @return IslandoraTuque

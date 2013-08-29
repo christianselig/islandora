@@ -998,36 +998,6 @@ function islandora_get_tuque_connection($new_user = NULL, $url = NULL) {
 
   global $user;
 
-  // $user_for_tuque = NULL;
-  //
-  // if TUQUE DOES NOT EXIST {
-  //   if PROVIDED USER IS NOT NULL {
-  //     MAKE TUQUE WITH PROVIDED USER
-  //   }
-  //   else
-  //   {
-  //     MAKE TUQUE WITH GLOBAL USER
-  //   }
-  // }
-  // else {
-  //   if PROVIDED USER IS NOT NULL {
-  //     if PROVIDED USER IS NOT TUQUE'S USER {
-  //       MAKE TUQUE WITH PROVIDED USER
-  //     }
-  //     else {
-  //       LEAVE TUQUE ALONE
-  //     }
-  //   }
-  //   else {
-  //     if GLOBAL USER IS NOT TUQUE'S USER {
-  //       MAKE TUQUE WITH GLOBAL USER
-  //     }
-  //     else {
-  //       LEAVE TUQUE ALONE
-  //     }
-  //   }
-  // }
-
   // If tuque is NULL.
   if (!$tuque) {
     // If the provided user is not null, pass it along to Tuque.
@@ -1067,6 +1037,17 @@ function islandora_get_tuque_connection($new_user = NULL, $url = NULL) {
   return $tuque;
 }
 
+/**
+ * Creates a singleton of tuque.
+ *
+ * @param object $user
+ *   The user to create tuque with.
+ * @param string $url
+ *   The URL to create tuque with.
+ *
+ * @return IslandoraTuque
+ *   The singleton tuque object.  
+ */
 function islandora_make_tuque($user, $url) {
   if (IslandoraTuque::exists()) {
     try {
