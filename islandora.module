@@ -994,6 +994,8 @@ function islandora_default_islandora_printer_object($object, $alter) {
  *   A IslandoraTuque instance
  */
 function islandora_get_tuque_connection($new_user = NULL, $url = NULL) {
+  module_load_include('inc', 'islandora', 'includes/utilities');
+
   $tuque = &drupal_static(__FUNCTION__);
 
   global $user;
@@ -1035,30 +1037,6 @@ function islandora_get_tuque_connection($new_user = NULL, $url = NULL) {
     }
   }
   return $tuque;
-}
-
-/**
- * Creates a singleton of tuque.
- *
- * @param object $user
- *   The user to create tuque with.
- * @param string $url
- *   The URL to create tuque with.
- *
- * @return IslandoraTuque
- *   The singleton tuque object.  
- */
-function islandora_make_tuque($user, $url) {
-  if (IslandoraTuque::exists()) {
-    try {
-      return new IslandoraTuque($user, $url);
-    }
-    catch (Exception $e) {
-      drupal_set_message(t('Unable to connect to the repository %e', array('%e' => $e)), 'error');
-    }
-  }
-
-  return NULL;
 }
 
 /**
