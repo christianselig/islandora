@@ -122,7 +122,8 @@ class IslandoraTuqueTestCase extends IslandoraWebTestCase {
    */
   public function testTuqueExistsAndUserIsNullAndGlobalUserIsNotTuquesUser() {
     $tuque = &drupal_static(__FUNCTION__);
-    global $user = NULL;
+    global $user;
+    $user = NULL;
     $new_tuque = islandora_get_tuque_connection($user);
 
     assertNotNull($new_tuque);
